@@ -1,19 +1,23 @@
 const mongoose = require("mongoose"); // importando el componente mogoose
 const ProductoSchema = mongoose.Schema({
-    nombre: {
+    nombre_producto: {
         type: String,
         required: true,
     },
-    edad: {
+    descripcion: {
+        type: String,
+        required: true,
+    },
+    precio: {
         type: Number,
         required: true,
     },
-    tipo: {
+    proveedor: {
         type: String,
-        required: true,
+        requiered: true,
     },
-    fecha: {
-        type: Date,
+    cantidad: {
+        type: Number,
         requiered: true,
     }
 });
