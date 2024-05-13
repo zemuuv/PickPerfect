@@ -9,3 +9,13 @@ router.post("/clientes", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 module.exports = router;
+router.put("/clientes/:id", (req, res) => {
+    const { id } = req.params;
+    const { usuario, contraseña } = req.body;
+    clienteSchema
+        .updateOne({ _id: id }, {
+            $set: { usuario, contraseña }
+        })
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
