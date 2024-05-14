@@ -8,14 +8,15 @@ router.post("/clientes", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-module.exports = router;
-router.put("/clientes/:id", (req, res) => {
+router.delete("/clientes/:id", (req, res) => {
     const { id } = req.params;
-    const { usuario, contraseña } = req.body;
     clienteSchema
-        .updateOne({ _id: id }, {
-            $set: { usuario, contraseña }
+        .findByIdAndDelete(id)
+        .then((data) => {
+            res.json(data);
         })
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }));
+        .catch((error) => {
+            res.json({ message: error });
+        });
 });
+module.exports = router;
