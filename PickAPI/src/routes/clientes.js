@@ -8,6 +8,7 @@ router.post("/clientes", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
+<<<<<<< HEAD
 router.delete("/clientes/:id", (req, res) => {
     const { id } = req.params;
     clienteSchema
@@ -20,3 +21,6 @@ router.delete("/clientes/:id", (req, res) => {
         });
 });
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> parent of 0c25956 (correciones)
