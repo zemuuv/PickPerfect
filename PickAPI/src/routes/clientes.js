@@ -30,7 +30,7 @@ router.delete("/clientes/:id", (req, res) => {
         });
 });
 router.get("/clientes", (req, res) => {
-    animalSchema.find()
+    clienteSchema.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });

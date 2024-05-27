@@ -19,6 +19,10 @@ const ProductoSchema = mongoose.Schema({
     cantidad: {
         type: Number,
         requiered: true,
+    },
+    tipo:{
+        type: String,
+        requiered: true,
     }
 });
 module.exports = mongoose.model("productos", ProductoSchema);
