@@ -1,5 +1,6 @@
 const parser = require("body-parser");
 const express = require('express');
+const authRoutes = require("./routes/authentication");
 const app = express();
 const port = 3000;
 const productosRoutes = require("./routes/productos");
@@ -11,6 +12,7 @@ app.use(parser.json()); // transforma los datos a formato JSON
 //Gestión de las rutas usando el middleware
 app.use("/api", productosRoutes);
 app.use("/api", clientesRoutes);
+app.use("/api", authRoutes);
 app.use(express.json());
 //Conexión a la base de datos
 mongoose
