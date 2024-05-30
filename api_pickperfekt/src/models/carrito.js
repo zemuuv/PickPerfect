@@ -1,28 +1,12 @@
 const mongoose = require("mongoose"); // importando el componente mogoose
 const CarritoSchema = mongoose.Schema({
-    nombre_producto: {
-        type: String,
-        required: true,
+    cliente: {
+        type: mongoose.Schema.Types.ObjectId, // Referencia al ID del producto
+        ref: 'clientes' // Referencia al modelo de productos
     },
-    descripcion: {
-        type: String,
-        required: true,
-    },
-    precio: {
-        type: Number,
-        required: true,
-    },
-    proveedor: {
-        type: String,
-        requiered: true,
-    },
-    cantidad: {
-        type: Number,
-        requiered: true,
-    },
-    categoria:{
-        type: String,
-        requiered: true,
-    }
+    productos: [{
+        type: mongoose.Schema.Types.ObjectId, // Referencia al ID del producto
+        ref: 'productos' // Referencia al modelo de productos
+    }]
 });
 module.exports = mongoose.model("carrito", CarritoSchema);

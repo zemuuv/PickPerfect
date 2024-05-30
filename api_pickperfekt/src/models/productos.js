@@ -20,9 +20,6 @@ const ProductoSchema = mongoose.Schema({
         type: Number,
         requiered: true,
     },
-    categoria:{
-        type: String,
-        requiered: true,
-    }
+    
 });
 module.exports = mongoose.model("productos", ProductoSchema);

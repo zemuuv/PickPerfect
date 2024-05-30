@@ -23,4 +23,9 @@ router.get("/products/:nombre_producto", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
+router.get("/products", (req, res) => {
+    productosSchema.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
 module.exports = router;
