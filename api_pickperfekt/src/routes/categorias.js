@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router(); //manejador de rutas de express
 const categoriaSchema = require("../models/categorias");
+const verifyToken = require("./validate_token");
 router.post("/categorias", (req, res) => {
     const categorias = categoriaSchema(req.body);
     categorias
@@ -25,5 +26,11 @@ router.get('/productosCategorias', (req, res) => {
             // Manejo de error
             res.status(500).send('Error interno del servidor');
         });
+});
+
+router.get("/categorias",  (req, res) => {
+    categoriaSchema.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
 });
 module.exports = router;

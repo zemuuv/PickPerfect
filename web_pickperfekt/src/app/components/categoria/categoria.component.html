@@ -1,0 +1,103 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Content Wrapper -->
+
+    <!--Para que aparezca el menú, colocar la siguiente línea en los componentes donde se necesite-->
+    <app-menu></app-menu>
+
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
+                        <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Content Row -->
+
+                <div class="row">
+
+                    <!--AQUI EL CONTENIDO CENTRAL-->
+
+                    <div class="container-fluid mt-4">
+                        <div class="row">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/categoria">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                                </ol>
+                            </nav>
+
+                            <!-- Content section 1-->
+                            <section id="scroll">
+                                <div class="container px-5">
+                                    <div class="row gx-5 align-items-center">
+
+                                        <div class="card" style="width: 18rem;" *ngFor="let categoria of categoriaList">
+                                            <img class="card-img-top" src="{{categoria.imagen}}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{categoria.nombre_categoria}}</h5>
+                                                <p class="card-text">{{categoria.descripcion}}</p>
+                                                <a href="/producto/{{categoria.nombre_categoria}}" class="btn btn-primary">Ver productos</a>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!--Termina el CONTENIDO CENTRAL-->
+
+                        </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
