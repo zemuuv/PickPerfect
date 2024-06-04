@@ -1,11 +1,9 @@
 <header class="masthead text-center text-white">
   <div class="masthead-content">
-    <div class="container px-5">
-
-      <div class="row">
-        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-        <div class="col-lg-6">
-          <div class="p-5">
+    <div class="container px-5 ">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 ">
+          <div class="p-5 bg-light text-dark rounded" style="max-width: 1000px; width: 100%;">
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Bienvenidos</h1>
             </div>
@@ -14,16 +12,16 @@
                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                   aria-describedby="emailHelp" placeholder="Correo" name="correo" ngModel>
               </div>
+              <br>
               <div class="form-group">
                 <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                   placeholder="Clave" name="clave" ngModel autocomplete="on">
               </div>
-
               <button type="submit" class="btn btn-primary btn-xl rounded-pill mt-5">
                 Iniciar sesión
               </button>
             </form>
-            <p>¿Aún no tienes cuenta? <a style="color:white;" href="/signup">Registrarse</a></p>
+            <p>¿Aún no tienes cuenta? <a style="color:black;" routerLink="/signup">Registrarse</a></p>
           </div>
         </div>
       </div>
@@ -34,3 +32,4 @@
   <div class="bg-circle-3 bg-circle"></div>
   <div class="bg-circle-4 bg-circle"></div>
 </header>
+
