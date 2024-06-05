@@ -28,4 +28,12 @@ router.get("/products", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
+router.delete('/delete-all-products', async (req, res) => {
+    try {
+        const result = await productosSchema.deleteMany({});
+        res.json({ message: `${result.deletedCount} productos eliminados` });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar productos' });
+    }
+});
 module.exports = router;

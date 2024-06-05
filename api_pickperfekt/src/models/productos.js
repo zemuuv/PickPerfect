@@ -1,4 +1,5 @@
 const mongoose = require("mongoose"); // importando el componente mogoose
+const categorias = require("./categorias");
 const ProductoSchema = mongoose.Schema({
     nombre_producto: {
         type: String,
@@ -20,6 +21,10 @@ const ProductoSchema = mongoose.Schema({
         type: Number,
         requiered: true,
     },
+    categorias: {
+        type: String,
+        requiered: true,
+    }
     
 });
 module.exports = mongoose.model("productos", ProductoSchema);
