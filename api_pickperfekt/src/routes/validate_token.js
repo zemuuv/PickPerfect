@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
   //console.log(JSON.parse(JSON.stringify(req.headers)).accesstoken);
   //const token = req.header("accesstoken");
 
-  //const token = JSON.parse(JSON.stringify(req.headers)).accesstoken;
+  //const token = JSON.parse(JSON.stringify(req.headers)).accesston;
   const token = req.header('accessToken');
 
 
