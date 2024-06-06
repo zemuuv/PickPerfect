@@ -1,36 +1,26 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ProductoService } from 'src/app/services/producto.service'; 
 
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent {
-  nombreCategoria: string | null = "";
-  //agregar una array para productosLista - guiarse del compnoete de animal
+export class ProductoComponent implements OnInit {
+  productoList: any = [];
+  user = 'Usuario';
 
-  //agregar el el constsructor el objet que instancia al serivcio
-  //guiarse del componente de animal
-  constructor(private route: ActivatedRoute) { }
+  constructor(private productoService: ProductoService) {}
 
-  ngOnInit(): void {
-    // Recuperar el valor del parámetro 'nombre' de la URL
-    this.route.paramMap.subscribe(params => {
-      this.nombreCategoria = params.get('nombre');
-      console.log('Nombre de la categoría:', this.nombreCategoria);
-      // Aquí puedes realizar acciones adicionales con el nombre de la categoría, como cargar productos asociados a esa categoría.
-    });
+  ngOnInit() {
+    this.getAllProducts();
   }
 
-//agregar el ngOnInit - guiarse del de animal
-
-  //ng g s services/producto
-  //guiarse de la consulta que se hace en servicio de animal
-  //se debe pasar el dato de nombreCategoria, se debe pasar como un array
-  //guiarse de la consulta que se hace en componente de animal
-  getAllProductosData(){ //guiarse del de animal
-    //llamado al método del servicio
-    this.nombreCategoria; //lo diferente es que deben pasar este datos como un array
+  getAllProducts() {
+    this.productoService.getAllProducts(localStorage.getItem('accessToken')).subscribe(
+      (data: any) => { // Corregí el tipo de data
+        this.productoList = data;
+      }
+    );
   }
 }

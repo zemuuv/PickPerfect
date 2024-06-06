@@ -1,1 +1,33 @@
-<p>producto works!</p>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/categoria">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+            </ol>
+        </nav>
+
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+
+                    <div class="card" style="width: 18rem;" *ngFor="let producto of productoList">
+                        <img class="card-img-top" src="{{producto.imagen}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{producto.nombre_producto}}</h5>
+                            <p class="card-text">{{producto.descripcion}}</p>
+                            <a href="/producto" class="btn btn-primary">Ver productos</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!--Termina el CONTENIDO CENTRAL-->
+
+    </div>
+
+</div>

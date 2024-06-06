@@ -36,4 +36,9 @@ router.delete('/delete-all-products', async (req, res) => {
         res.status(500).json({ error: 'Error al eliminar productos' });
     }
 });
+router.get("/products/:categorias", (req, res) => {
+    productosSchema.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
 module.exports = router;
