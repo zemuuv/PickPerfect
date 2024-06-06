@@ -1,33 +1,54 @@
 <div class="container-fluid mt-4">
     <div class="row">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/categoria">Inicio</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Categorias</li>
-            </ol>
-        </nav>
-
-        <!-- Content section 1-->
-        <section id="scroll">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-
-                    <div class="card" style="width: 18rem;" *ngFor="let producto of productoList">
-                        <img class="card-img-top" src="{{producto.imagen}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{producto.nombre_producto}}</h5>
-                            <p class="card-text">{{producto.descripcion}}</p>
-                            <a href="/producto" class="btn btn-primary">Ver productos</a>
-                        </div>
-                    </div>
-
-
-                </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/categoria">Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+        </ol>
+      </nav>
+  
+      <!-- Content section 1 -->
+      <section id="scroll">
+        <div class="container px-5">
+          <div class="row gx-5 align-items-center">
+            <div class="card" style="width: 18rem;" *ngFor="let producto of productoList">
+              <img class="card-img-top" [src]="producto.imagen" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{producto.nombre_producto}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <button type="button" class="btn btn-primary" (click)="openModal(producto)">Ver productos</button>
+              </div>
             </div>
-        </section>
-
-        <!--Termina el CONTENIDO CENTRAL-->
-
+          </div>
+        </div>
+      </section>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="productModalLabel">{{selectedProduct?.nombre_producto}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img [src]="selectedProduct?.imagen" class="img-fluid" alt="Product Image">
+              <h6 style="font-weight: bold;">descripcion:</h6>
+              <p>{{selectedProduct?.descripcion}}</p>
+              <h6 style="font-weight: bold;">proveedor:</h6>
+              <p>{{selectedProduct?.proveedor}}</p>
+              <h6 style="font-weight: bold;">precio:</h6>
+              <p>{{selectedProduct?.precio}}$</p>
+              <h6 style="font-weight: bold;">cantidad:</h6>
+              <p>{{selectedProduct?.cantidad}} unidades</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <a [href]="'/producto/' + selectedProduct?.id" class="btn btn-primary">Ver más detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-</div>
+  </div>
+  
